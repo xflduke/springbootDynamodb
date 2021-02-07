@@ -14,8 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-// @ActiveProfiles("local")
-//@RunWith(JUnit.class)
+//@ActiveProfiles("test")
 @SpringBootTest(classes = DemoApplication.class)
 @TestPropertySource(properties = {
         "amazon.dynamodb.endpoint=http://192.168.3.60:8000/",
@@ -62,10 +61,10 @@ public class UserInfoRepositoryTest {
         }
         // TODO
 
-        UserInfo userInfo = new UserInfo("1", "username", "password", "1", "1", "1");
+        UserInfo userInfo = new UserInfo("username", "password", "passwordConfirmed", "admin", "1", "1", "1");
         UserInfo uInf = repository.save(userInfo);
         
-        UserInfo result = repository.findById("1").get();
+        UserInfo result = repository.findByUsername("1").orElse(null);
 
         return;
 //        List<UserInfo> result = (List<UserInfo>) repository.findAll();

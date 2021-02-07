@@ -1,0 +1,17 @@
+amazon:
+  dynamodb:
+    endpoint: http://192.168.3.60:8000/
+  aws:
+    accesskey: fakeAWSAccessKey
+    secretkey: fakeAWSSecretAccessKey
+
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    template-loader-path: classpath:/templates
+    spring.thymeleaf.suffix: .html
+    spring.thymeleaf.cache: false
+  messages:
+    basename: messages
